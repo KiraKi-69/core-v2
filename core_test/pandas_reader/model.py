@@ -27,9 +27,9 @@ class PandasReader(MLModel):
         
         if output_df.empty:
             logger.info("it is not work")
-            output_df = pd.DataFrame({'status':["no rows satisfied " + self.query]})
+            output_df = pd.DataFrame({'status':["no rows satisfied "]})
         else:
             logger.info("it is WORK")
-            output_df["status"] = "row satisfied " + self.query
+            output_df["status"] = "row satisfied "
         
         return PandasCodec.encode_response(self.name, output_df, self.version)
